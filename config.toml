@@ -1,0 +1,22 @@
+# JPEG Locker - Product Website
+# Zola Configuration
+
+base_url = "https://jpeglocker.com"
+title = "JPEG Locker"
+description = "Hide encrypted messages and files inside images. Steganography that survives social media."
+default_language = "en"
+theme = ""
+
+compile_sass = true
+minify_html = true
+build_search_index = false
+generate_feeds = false
+
+[markdown]
+highlight_code = false
+
+[extra]
+author = "JPEG Locker Team"
+tagline = "Your secrets, invisible."
+
+web3forms_key = "62bd332a-45fb-45b6-b009-9d691ca1ecbe"

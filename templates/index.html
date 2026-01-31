@@ -1,0 +1,292 @@
+{% extends "base.html" %}
+
+{% block title %}{{ config.title }} — Hide Secrets in Plain Sight{% endblock %}
+
+{% block content %}
+<header class="header">
+    <nav class="nav">
+        <a href="/" class="logo">
+            <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 2L28 9V23L16 30L4 23V9L16 2Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <path d="M16 8L22 11.5V18.5L16 22L10 18.5V11.5L16 8Z" fill="currentColor"/>
+                <circle cx="16" cy="15" r="2" fill="var(--bg-dark)"/>
+            </svg>
+            <span>JPEG Locker</span>
+        </a>
+        <div class="nav-links">
+            <a href="https://github.com/steganogram/jpeg-locker" target="_blank" rel="noopener" class="nav-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                <span>GitHub</span>
+            </a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge animate-in">
+                <span class="badge-dot"></span>
+                <span>Open Source • Built in Rust</span>
+            </div>
+            
+            <h1 class="hero-title animate-in">
+                <span class="title-line">Hide secrets</span>
+                <span class="title-line accent">in plain sight</span>
+            </h1>
+            
+            <p class="hero-description animate-in">
+                Embed encrypted messages and files inside ordinary JPEG images. 
+                Steganography that survives social media compression. 
+                No one will ever know.
+            </p>
+            
+            <div class="hero-cta animate-in">
+                <form id="waitlist-form" class="waitlist-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="input-wrapper">
+                        <input 
+                            type="email" 
+                            name="email" 
+                            placeholder="Enter your email"
+                            required
+                            autocomplete="email"
+                        >
+                        <button type="submit">
+                            Join Waitlist
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <p id="form-message" class="form-message"></p>
+                </form>
+                <p class="cta-note">Be first to know when we launch. No spam, ever.</p>
+            </div>
+        </div>
+        
+        <div class="hero-visual animate-in">
+            <div class="visual-container">
+                <div class="image-layer base">
+                    <div class="fake-image">
+                        <div class="image-header">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <div class="image-content">
+                            <svg viewBox="0 0 100 60" class="landscape-icon">
+                                <polygon points="20,50 40,25 55,40 70,20 85,50" fill="var(--accent-dim)"/>
+                                <circle cx="75" cy="18" r="8" fill="var(--accent)"/>
+                            </svg>
+                            <span class="file-ext">.jpg</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-layer hidden-data">
+                    <div class="data-stream">
+                        <span>█▓▒░ ENCRYPTED ░▒▓█</span>
+                        <span class="binary">01001000 01101001 01100100 01100101</span>
+                        <span class="lock-icon">🔐</span>
+                    </div>
+                </div>
+                <div class="visual-glow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="section-header animate-in">
+            <span class="section-tag">// How it works</span>
+            <h2>Invisible by design</h2>
+        </div>
+        
+        <div class="steps-grid">
+            <div class="step animate-in">
+                <div class="step-number">01</div>
+                <div class="step-icon">
+                    <svg viewBox="0 0 48 48" fill="none">
+                        <rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+                        <path d="M16 28l6-8 4 5 8-11" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="32" cy="18" r="3" fill="var(--accent)"/>
+                    </svg>
+                </div>
+                <h3>Drop an image</h3>
+                <p>Drag any JPEG into the app. Even images already carrying hidden data—pulled straight from social media.</p>
+            </div>
+            
+            <div class="step animate-in">
+                <div class="step-number">02</div>
+                <div class="step-icon">
+                    <svg viewBox="0 0 48 48" fill="none">
+                        <rect x="12" y="16" width="24" height="20" rx="3" stroke="currentColor" stroke-width="2"/>
+                        <path d="M18 16V12a6 6 0 1112 0v4" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="24" cy="28" r="2" fill="var(--accent)"/>
+                        <path d="M24 30v4" stroke="var(--accent)" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h3>Encrypt your payload</h3>
+                <p>Write a message. Attach files. Everything gets encrypted with your password before embedding.</p>
+            </div>
+            
+            <div class="step animate-in">
+                <div class="step-number">03</div>
+                <div class="step-icon">
+                    <svg viewBox="0 0 48 48" fill="none">
+                        <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2"/>
+                        <path d="M24 16v8l6 4" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="24" cy="24" r="2" fill="var(--accent)"/>
+                    </svg>
+                </div>
+                <h3>Share anywhere</h3>
+                <p>The image looks identical. Post it, send it, store it. F5 encoding survives compression.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="section-header animate-in">
+            <span class="section-tag">// Capabilities</span>
+            <h2>Built for the paranoid</h2>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card large animate-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 32 32" fill="none">
+                        <path d="M16 4L4 10v12l12 6 12-6V10L16 4z" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M4 10l12 6 12-6M16 16v12" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                    </svg>
+                </div>
+                <h3>F5 Steganography</h3>
+                <p>Advanced coefficient manipulation that's undetectable by statistical analysis. Your data hides in the image's DNA.</p>
+                <div class="feature-visual">
+                    <code>DCT → Quantize → <span class="highlight">Embed</span> → Huffman</code>
+                </div>
+            </div>
+            
+            <div class="feature-card animate-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 32 32" fill="none">
+                        <rect x="6" y="10" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M11 10V7a5 5 0 0110 0v3" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="16" cy="18" r="2" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h3>Military-Grade Encryption</h3>
+                <p>AES-256-GCM encryption. Your password never leaves your device.</p>
+            </div>
+            
+            <div class="feature-card animate-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 32 32" fill="none">
+                        <rect x="4" y="8" width="24" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M4 14h24" stroke="currentColor" stroke-width="1.5"/>
+                        <rect x="7" y="17" width="6" height="4" rx="1" fill="currentColor" opacity="0.5"/>
+                    </svg>
+                </div>
+                <h3>Compression Resistant</h3>
+                <p>Survives JPEG recompression. Share on Twitter, Instagram, anywhere.</p>
+            </div>
+            
+            <div class="feature-card animate-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 32 32" fill="none">
+                        <path d="M8 8h16v16H8z" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M12 16h8M16 12v8" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <h3>File Attachments</h3>
+                <p>Hide entire files inside images. Documents, archives, whatever fits.</p>
+            </div>
+            
+            <div class="feature-card animate-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 32 32" fill="none">
+                        <circle cx="16" cy="16" r="10" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M16 6v4M16 22v4M6 16h4M22 16h4" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <h3>Cross-Platform</h3>
+                <p>Native apps for Windows, macOS, and Linux. Built with Rust + GPUI.</p>
+            </div>
+            
+            <div class="feature-card animate-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 32 32" fill="none">
+                        <path d="M16 4l-8 4v8c0 6 8 10 8 10s8-4 8-10V8l-8-4z" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M12 16l3 3 5-6" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <h3>Open Source</h3>
+                <p>Fully auditable. Trust is verified, not assumed. MIT licensed.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mind Blow -->
+    <section class="mind-blow">
+        <div class="mind-blow-content animate-in">
+            <blockquote>
+                <span class="quote-mark">"</span>
+                How many encrypted conversations are flying through your timeline right now?
+                <span class="quote-mark">"</span>
+            </blockquote>
+            <p class="mind-blow-sub">Every image you've ever scrolled past could be carrying secrets. Yours can too.</p>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="cta-content animate-in">
+            <h2>Ready to hide in plain sight?</h2>
+            <p>Join the waitlist. Be among the first to embed your secrets.</p>
+            
+            <form id="waitlist-form-bottom" class="waitlist-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="input-wrapper">
+                    <input 
+                        type="email" 
+                        name="email" 
+                        placeholder="your@email.com"
+                        required
+                        autocomplete="email"
+                    >
+                    <button type="submit">
+                        Join Waitlist
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <svg class="footer-logo" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 2L28 9V23L16 30L4 23V9L16 2Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <path d="M16 8L22 11.5V18.5L16 22L10 18.5V11.5L16 8Z" fill="currentColor"/>
+                <circle cx="16" cy="15" r="2" fill="var(--bg-dark)"/>
+            </svg>
+            <span>JPEG Locker</span>
+        </div>
+        
+        <div class="footer-links">
+            <a href="https://github.com/steganogram/jpeg-locker" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://stegano.org" target="_blank" rel="noopener">Stegano.org</a>
+            <a href="mailto:hello@jpeglocker.com">Contact</a>
+        </div>
+        
+        <p class="footer-copy">
+            &copy; {{ now() | date(format="%Y") }} JPEG Locker. Open source under MIT license.
+        </p>
+    </div>
+</footer>
+{% endblock %}

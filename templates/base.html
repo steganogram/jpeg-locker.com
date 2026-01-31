@@ -53,18 +53,15 @@
         document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
         
         // Waitlist form handling
-        const form = document.getElementById('waitlist-form');
-        const formMessage = document.getElementById('form-message');
-        
-        if (form) {
+        document.querySelectorAll('.waitlist-form').forEach(form => {
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                const email = form.querySelector('input[type="email"]').value;
                 const button = form.querySelector('button');
-                
+                const formMessage = form.querySelector('.form-message');
+
                 button.disabled = true;
                 button.innerHTML = '<span class="loading"></span>';
-                
+
                 try {
                     const response = await fetch(form.action, {
                         method: 'POST',
@@ -73,24 +70,28 @@
                             'Accept': 'application/json'
                         }
                     });
-                    
+
                     if (response.ok) {
                         form.classList.add('success');
-                        formMessage.textContent = 'You\'re on the list. We\'ll be in touch.';
-                        formMessage.classList.add('show', 'success');
+                        if (formMessage) {
+                            formMessage.textContent = 'You\'re on the list. We\'ll be in touch.';
+                            formMessage.classList.add('show', 'success');
+                        }
                         form.reset();
                     } else {
                         throw new Error('Submission failed');
                     }
                 } catch (error) {
-                    formMessage.textContent = 'Something went wrong. Try again.';
-                    formMessage.classList.add('show', 'error');
+                    if (formMessage) {
+                        formMessage.textContent = 'Something went wrong. Try again.';
+                        formMessage.classList.add('show', 'error');
+                    }
                 }
-                
+
                 button.disabled = false;
-                button.textContent = 'Join Waitlist';
+                button.innerHTML = 'Join Waitlist <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
             });
-        }
+        });
         
         // Parallax effect for hero
         window.addEventListener('scroll', () => {

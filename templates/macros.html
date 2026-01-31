@@ -1,0 +1,39 @@
+{% macro waitlist_form(id, placeholder="Enter your email", show_message=false) %}
+<form
+    id="{{ id }}"
+    class="waitlist-form"
+    action="https://api.web3forms.com/submit"
+    method="POST"
+>
+    <div class="input-wrapper">
+        <input
+            type="hidden"
+            name="access_key"
+            value="{{ config.extra.web3forms_key }}"
+        />
+        <input
+            type="email"
+            name="email"
+            placeholder="{{ placeholder }}"
+            required
+            autocomplete="email"
+        />
+        <button type="submit">
+            Join Waitlist
+            <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+            >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
+    {% if show_message %}
+    <p id="form-message" class="form-message"></p>
+    {% endif %}
+</form>
+{% endmacro %}

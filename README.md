@@ -2,30 +2,34 @@
 
 Dark, hexagonal, carbon-fiber inspired product landing page for JPEG Locker — the steganography tool that hides encrypted messages and files inside ordinary JPEG images.
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Static Site Generator:** [Zola](https://www.getzola.org/)
 - **Styling:** SCSS (compiled by Zola)
-- **Form Handling:** [Formspree](https://formspree.io/) (or any static form service)
+- **Form Handling:** [Web3Forms](https://web3forms.com/)
+- **Hosting:** GitHub Pages
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-jpeg-locker-site/
+jpeg-locker.com/
 ├── config.toml          # Zola configuration
 ├── content/
 │   └── _index.md        # Homepage content
 ├── sass/
 │   └── style.scss       # All styles
 ├── static/
-│   └── images/
-│       └── favicon.svg  # Site favicon
-└── templates/
-    ├── base.html        # Base template
-    └── index.html       # Homepage template
+│   └── images/          # Static assets
+├── templates/
+│   ├── base.html        # Base template
+│   ├── index.html       # Homepage template
+│   └── macros.html      # Reusable components
+└── .github/
+    └── workflows/
+        └── deploy.yml   # GitHub Pages deployment
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -45,9 +49,6 @@ snap install zola --edge
 ### Development
 
 ```bash
-# Navigate to project
-cd jpeg-locker-site
-
 # Start dev server with live reload
 zola serve
 
@@ -63,78 +64,30 @@ zola build
 # Output in ./public/
 ```
 
-## 📧 Setting Up the Waitlist Form
+## Waitlist Form
 
-1. Create a free account at [Formspree](https://formspree.io/)
-2. Create a new form and get your form ID (looks like `f/xyzabc123`)
-3. Replace `YOUR_FORM_ID` in `templates/index.html` (two places):
-   ```html
-   action="https://formspree.io/f/YOUR_FORM_ID"
-   ```
+The waitlist form uses [Web3Forms](https://web3forms.com/) — free, unlimited submissions, no backend required.
 
-### Alternative Form Services
+The access key is configured in `config.toml`:
 
-- **Netlify Forms:** Add `data-netlify="true"` to the form tag
-- **Getform.io:** Replace action URL with your Getform endpoint
-- **Basin:** Replace action URL with your Basin endpoint
-
-## 🌐 Deployment
-
-### Netlify (Recommended)
-
-1. Push to GitHub/GitLab
-2. Connect repo to Netlify
-3. Build settings:
-   - Build command: `zola build`
-   - Publish directory: `public`
-
-Or use the included `netlify.toml`.
-
-### Cloudflare Pages
-
-1. Connect repo
-2. Build settings:
-   - Build command: `zola build`
-   - Build output: `public`
-   - Environment variable: `ZOLA_VERSION` = `0.19.1`
-
-### Vercel
-
-```bash
-# Install Zola via package.json
-npm init -y
-npm install --save-dev zola
-
-# vercel.json
-{
-  "buildCommand": "npx zola build",
-  "outputDirectory": "public"
-}
+```toml
+[extra]
+web3forms_key = "your-access-key"
 ```
 
-### GitHub Pages
+The form component is defined in `templates/macros.html` and used in `templates/index.html`.
 
-Use the GitHub Actions workflow in `.github/workflows/deploy.yml` (create if needed):
+## Deployment
 
-```yaml
-name: Deploy to GitHub Pages
+The site deploys automatically to GitHub Pages on push to `main` via `.github/workflows/deploy.yml`.
 
-on:
-  push:
-    branches: [main]
+### Setup GitHub Pages
 
-jobs:
-  build-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Build
-        uses: shalzz/zola-deploy-action@v0.18.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-```
+1. Go to repo Settings → Pages
+2. Set Source to "GitHub Actions"
+3. Push to `main` — the workflow handles the rest
 
-## 🎨 Customization
+## Customization
 
 ### Colors
 
@@ -142,16 +95,15 @@ Edit CSS variables in `sass/style.scss`:
 
 ```scss
 :root {
-    --bg-dark: #0a0a0b;           // Main background
-    --accent: #22d3ee;             // Cyan accent
+    --bg-dark: #0a0a0b;
+    --accent: #22d3ee;
     --accent-dim: rgba(34, 211, 238, 0.15);
-    // ... more
 }
 ```
 
 ### Content
 
-Edit text directly in `templates/index.html` or move content to `content/_index.md` with front matter.
+Edit text in `templates/index.html`. Reusable components live in `templates/macros.html`.
 
 ### Domain
 
@@ -161,10 +113,10 @@ Update `base_url` in `config.toml`:
 base_url = "https://yourdomain.com"
 ```
 
-## 📝 License
+## License
 
 MIT — Open source, just like JPEG Locker itself.
 
 ---
 
-Built with 🔐 by the JPEG Locker team
+Built with privacy in mind by the JPEG Locker team

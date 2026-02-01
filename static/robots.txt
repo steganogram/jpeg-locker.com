@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jpeglocker.com/sitemap.xml
+Sitemap: https://jpeg-locker.com/sitemap.xml

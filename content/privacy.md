@@ -1,10 +1,10 @@
 +++
 title = "Privacy Policy"
 template = "page.html"
-date = 2026-02-11
+date = 2026-02-07
 +++
 
-**Effective date:** February 11, 2026
+**Effective date:** February 07, 2026
 
 JPEG Locker is built with privacy at its core. This policy explains what data we collect and how we handle it.
 
@@ -33,9 +33,9 @@ We use [Plausible Analytics](https://plausible.io/), a privacy-friendly, cookie-
 
 This website does not use cookies.
 
-## Open Source
+## Auditable Core
 
-JPEG Locker is open source. You can verify all of the above by inspecting the [source code](https://github.com/steganogram/jpeg-locker).
+The crypto and steganography engines that JPEG Locker builds on are open source. You can inspect the code that handles your data in the [stegano-rs](https://github.com/steganogram/stegano-rs) repository.
 
 ## Contact
 

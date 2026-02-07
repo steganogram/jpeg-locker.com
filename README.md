@@ -115,7 +115,7 @@ base_url = "https://yourdomain.com"
 
 ## License
 
-MIT — Open source, just like JPEG Locker itself.
+MIT — Open source
 
 ---
 

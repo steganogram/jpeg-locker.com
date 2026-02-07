@@ -1,7 +1,7 @@
 # JPEG Locker - Product Website
 # Zola Configuration
 
-base_url = "https://jpeglocker.com"
+base_url = "https://jpeg-locker.com"
 title = "JPEG Locker"
 description = "Hide encrypted messages and files inside images. Steganography that survives social media."
 default_language = "en"

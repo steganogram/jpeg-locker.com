@@ -8,7 +8,7 @@ Hide Secrets in Plain Sight{% endblock %} {% block content %}
         </a>
         <div class="nav-links">
             <a
-                href="https://github.com/steganogram/jpeg-locker"
+                href="https://github.com/steganogram/jpeg-locker.com"
                 target="_blank"
                 rel="noopener"
                 class="nav-link"
@@ -30,7 +30,7 @@ Hide Secrets in Plain Sight{% endblock %} {% block content %}
         <div class="hero-content">
             <div class="hero-badge animate-in">
                 <span class="badge-dot"></span>
-                <span>Open Source • Built in Rust</span>
+                <span>Auditable Core • Built in Rust</span>
             </div>
 
             <h1 class="hero-title animate-in">
@@ -46,7 +46,10 @@ Hide Secrets in Plain Sight{% endblock %} {% block content %}
             <div class="hero-cta animate-in">
                 {{ macros::waitlist_form(id="waitlist-form", placeholder="Enter your email",
                 show_message=true) }}
-                <p class="cta-note">Be first to know when we launch. No spam, ever. <a href="/privacy/">Privacy Policy</a></p>
+                <p class="cta-note">
+                    Be first to know when we launch. No spam, ever.
+                    <a href="/privacy/">Privacy Policy</a>
+                </p>
             </div>
         </div>
 
@@ -67,7 +70,7 @@ Hide Secrets in Plain Sight{% endblock %} {% block content %}
                                 />
                                 <circle cx="75" cy="18" r="8" fill="var(--accent)" />
                             </svg>
-                            <span class="file-ext">.jpg</span>
+                            <span class="file-ext">.jpeg</span>
                         </div>
                     </div>
                 </div>
@@ -316,8 +319,16 @@ Hide Secrets in Plain Sight{% endblock %} {% block content %}
                         <path d="M12 16l3 3 5-6" stroke="currentColor" stroke-width="1.5" />
                     </svg>
                 </div>
-                <h3>Open Source</h3>
-                <p>Fully auditable. Trust is verified, not assumed. MIT licensed.</p>
+                <h3>Auditable Core</h3>
+                <p>
+                    The crypto and stegano engines are
+                    <a
+                        href="https://github.com/steganogram/stegano-rs"
+                        target="_blank"
+                        rel="noopener"
+                        >open source</a
+                    >. Inspect the code that handles your secrets.
+                </p>
             </div>
         </div>
     </section>
@@ -361,9 +372,7 @@ Hide Secrets in Plain Sight{% endblock %} {% block content %}
             <a href="/privacy/">Privacy</a>
         </div>
 
-        <p class="footer-copy">
-            &copy; {{ now() | date(format="%Y") }} JPEG Locker. Open source under MIT license.
-        </p>
+        <p class="footer-copy">&copy; {{ now() | date(format="%Y") }} JPEG Locker.</p>
     </div>
 </footer>
 {% endblock %}

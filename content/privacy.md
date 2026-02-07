@@ -23,7 +23,7 @@ All encryption, encoding, and decoding happens locally on your device. Your imag
 
 ### Waitlist form
 
-If you submit your email through our waitlist form, it is processed by [Web3Forms](https://web3forms.com/). We use your email solely to notify you about product availability. We do not sell, share, or use your email for any other purpose. You can request deletion at any time by emailing [hello@jpeglocker.com](mailto:hello@jpeglocker.com).
+If you submit your email through our waitlist form, it is processed by [Web3Forms](https://web3forms.com/). We use your email solely to notify you about product availability. We do not sell, share, or use your email for any other purpose. You can request deletion at any time by emailing [hello@jpeg-locker.com](mailto:hello@jpeg-locker.com).
 
 ### Analytics
 
@@ -39,4 +39,4 @@ JPEG Locker is open source. You can verify all of the above by inspecting the [s
 
 ## Contact
 
-Questions about this policy? Email [hello@jpeglocker.com](mailto:hello@jpeglocker.com).
+Questions about this policy? Email [hello@jpeg-locker.com](mailto:hello@jpeg-locker.com).

@@ -1,9 +1,5 @@
-{% extends "base.html" %}
-{% import "macros.html" as macros %}
-
-{% block title %}{{ config.title }} — Hide Secrets in Plain Sight{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% import "macros.html" as macros %} {% block title %}{{ config.title }} —
+Hide Secrets in Plain Sight{% endblock %} {% block content %}
 <header class="header">
     <nav class="nav">
         <a href="/" class="logo">
@@ -62,8 +58,9 @@
             </p>
 
             <div class="hero-cta animate-in">
-                {{ macros::waitlist_form(id="waitlist-form", placeholder="Enter your email", show_message=true) }}
-                <p class="cta-note">Be first to know when we launch. No spam, ever.</p>
+                {{ macros::waitlist_form(id="waitlist-form", placeholder="Enter your email",
+                show_message=true) }}
+                <p class="cta-note">Be first to know when we launch. No spam, ever. <a href="/privacy/">Privacy Policy</a></p>
             </div>
         </div>
 
@@ -241,7 +238,9 @@
                     </svg>
                 </div>
                 <h3>Battle-Tested Encryption</h3>
-                <p>Same encryption as Signal and WireGuard. Your password never leaves your device.</p>
+                <p>
+                    Same encryption as Signal and WireGuard. Your password never leaves your device.
+                </p>
             </div>
 
             <div class="feature-card animate-in">
@@ -306,7 +305,14 @@
                             stroke="currentColor"
                             stroke-width="1.5"
                         />
-                        <rect x="12" y="18" width="8" height="10" stroke="currentColor" stroke-width="1.5" />
+                        <rect
+                            x="12"
+                            y="18"
+                            width="8"
+                            height="10"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                        />
                     </svg>
                 </div>
                 <h3>100% Offline</h3>
@@ -338,9 +344,7 @@
                 Invisibility is a superpower.
                 <span class="quote-mark">"</span>
             </blockquote>
-            <p class="mind-blow-sub">
-                Your secrets don't need armor. They need camouflage.
-            </p>
+            <p class="mind-blow-sub">Your secrets don't need armor. They need camouflage.</p>
         </div>
     </section>
 
@@ -381,7 +385,8 @@
                 >GitHub</a
             >
             <a href="https://stegano.org" target="_blank" rel="noopener">Stegano.org</a>
-            <a href="mailto:hello@jpeglocker.com">Contact</a>
+            <a href="mailto:hello@jpeg-locker.com">Contact</a>
+            <a href="/privacy/">Privacy</a>
         </div>
 
         <p class="footer-copy">

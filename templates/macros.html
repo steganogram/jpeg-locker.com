@@ -2,15 +2,12 @@
 <form
     id="{{ id }}"
     class="waitlist-form"
-    action="https://api.web3forms.com/submit"
+    action="https://api.jpeg-locker.com/waitlist"
     method="POST"
 >
     <div class="input-wrapper">
-        <input
-            type="hidden"
-            name="access_key"
-            value="{{ config.extra.web3forms_key }}"
-        />
+        <input type="hidden" name="platform" id="waitlist-platform" value="unknown" />
+        <input type="hidden" name="language" id="waitlist-language" value="" />
         <input
             type="email"
             name="email"

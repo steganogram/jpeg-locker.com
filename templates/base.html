@@ -71,29 +71,59 @@
 
             document.querySelectorAll(".animate-in").forEach((el) => observer.observe(el));
 
+            // Detect platform and populate hidden field before any form submit
+            (function () {
+                function detectPlatform() {
+                    const uad = navigator.userAgentData;
+                    if (uad && uad.platform) {
+                        const p = uad.platform.toLowerCase();
+                        if (p.includes("mac")) return "macos";
+                        if (p.includes("win")) return "windows";
+                        return "unknown";
+                    }
+                    const legacy = (navigator.platform || "").toLowerCase();
+                    if (legacy.includes("mac")) return "macos";
+                    if (legacy.includes("win")) return "windows";
+                    return "unknown";
+                }
+                const field = document.getElementById("waitlist-platform");
+                if (field) field.value = detectPlatform();
+                const langField = document.getElementById("waitlist-language");
+                if (langField) langField.value = navigator.language || "";
+            })();
+
             // Waitlist form handling
             document.querySelectorAll(".waitlist-form").forEach((form) => {
                 form.addEventListener("submit", async (e) => {
                     e.preventDefault();
                     const button = form.querySelector("button");
                     const formMessage = form.querySelector(".form-message");
+                    const originalHTML = button.innerHTML;
+                    const successMsg = form.dataset.successMsg || "You're on the list. We'll be in touch.";
 
                     button.disabled = true;
                     button.innerHTML = '<span class="loading"></span>';
 
                     try {
+                        const data = {
+                            email: form.querySelector('[name="email"]').value,
+                            platform: (form.querySelector('[name="platform"]') || {}).value || "unknown",
+                            language: (form.querySelector('[name="language"]') || {}).value || "",
+                        };
+
                         const response = await fetch(form.action, {
                             method: "POST",
-                            body: new FormData(form),
                             headers: {
+                                "Content-Type": "application/json",
                                 Accept: "application/json",
                             },
+                            body: JSON.stringify(data),
                         });
 
                         if (response.ok) {
                             form.classList.add("success");
                             if (formMessage) {
-                                formMessage.textContent = "You're on the list. We'll be in touch.";
+                                formMessage.textContent = successMsg;
                                 formMessage.classList.add("show", "success");
                             }
                             form.reset();
@@ -108,8 +138,7 @@
                     }
 
                     button.disabled = false;
-                    button.innerHTML =
-                        'Join Waitlist <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+                    button.innerHTML = originalHTML;
                 });
             });
 

@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://jpeg-locker.com">
+    <img src="static/images/app-icon.svg" width="128" alt="JPEG Locker" />
+  </a>
+</p>
+
 # JPEG Locker Website
 
 Dark, hexagonal, carbon-fiber inspired product landing page for JPEG Locker — the steganography tool that hides encrypted messages and files inside ordinary JPEG images.

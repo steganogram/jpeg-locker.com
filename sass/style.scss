@@ -751,6 +751,50 @@ section {
     }
 }
 
+// Migration Section
+.migration {
+    text-align: center;
+    padding: var(--space-3xl) var(--space-xl);
+}
+
+.migration-content {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: var(--space-2xl);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition: border-color 0.3s;
+
+    &:hover {
+        border-color: var(--border-accent);
+    }
+
+    .section-tag {
+        margin-bottom: var(--space-md);
+    }
+
+    h2 {
+        font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+        margin-bottom: var(--space-md);
+    }
+
+    p {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        line-height: 1.7;
+    }
+
+    a {
+        color: var(--accent);
+        transition: opacity 0.2s;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
 // Mind Blow Section
 .mind-blow {
     text-align: center;
